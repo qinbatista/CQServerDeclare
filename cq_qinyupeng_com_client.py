@@ -32,8 +32,8 @@ class DDNSClient:
         thread_refresh.start()
 
     def _start(self):
+        os.system("pwd")
         while True:
-            # os.chdir("/usr/local/shadowsocksr")
             try:
                 _get_static_ip_stdout = open(self._fn_stdout, 'w+')
                 process = subprocess.Popen("ssr start", stdout=_get_static_ip_stdout,
