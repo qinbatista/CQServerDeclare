@@ -25,9 +25,9 @@ import signal
 
 if __name__ == '__main__':
     import inspect
-    os.chdir("pwd")
+    os.os("pwd")
     os.chdir("/usr/local/shadowsocksr")
-    os.chdir("pwd")
+    os.os("pwd")
     file_path = os.path.dirname(os.path.realpath(inspect.getfile(inspect.currentframe())))
     sys.path.insert(0, os.path.join(file_path, '../'))
 
