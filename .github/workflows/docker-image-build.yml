@@ -10,6 +10,7 @@ jobs:
     environment: CQServerDeclare
     steps:
       - uses: actions/checkout@v3
+      - run: pwd; ls
       - name: Build the Docker image
         run: docker build -t qinbatista/cq_qinyupeng_com_client_debian .
 
