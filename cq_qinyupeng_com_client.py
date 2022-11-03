@@ -142,4 +142,4 @@ if __name__ == '__main__':
     # os.system("ssr start")
     ss = DDNSClient()
     ss._declare_alive()
-    ss._testServer()
+    # ss._testServer()

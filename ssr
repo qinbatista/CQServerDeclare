@@ -43,7 +43,7 @@ ssr_help() {
 }
 
 ssr_install() {
-    sudo git clone -b $BRANCH $GIT_REPO $INSTALL_PATH
+    # sudo move /shadowsocksr $INSTALL_PATH
     echo "Install finished!\nYou can visit my website $WEBSITE to acquire free ssr configs"
 }
 
