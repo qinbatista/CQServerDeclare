@@ -15,7 +15,7 @@ if [ -z $EDITOR ];then
 fi
 
 WEBSITE=http://ss.pythonic.life
-BRANCH=manyuser
+BRANCH=main
 GIT_REPO=https://github.com/qinbatista/Shadowsocksr.git
 INSTALL_PATH=$HOME/.local/share/shadowsocksr
 
