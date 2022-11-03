@@ -64,14 +64,14 @@ ssr_test(){
 }
 
 ssr_start() {
-    cd $INSTALL_PATH/shadowsocks/
+    cd $INSTALL_PATH/
     sudo python local.py -c /etc/shadowsocks.json -d start
     sleep 1
     ssr_test
 }
 
 ssr_stop() {
-    cd $INSTALL_PATH/shadowsocks/
+    cd $INSTALL_PATH/
     sudo python local.py -c /etc/shadowsocks.json -d stop
 }
 
