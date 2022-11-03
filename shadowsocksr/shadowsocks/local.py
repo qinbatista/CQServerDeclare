@@ -23,6 +23,7 @@ import os
 import logging
 import signal
 sys.path.append('..')
+os.system("pwd")
 from shadowsocks import shell, daemon, eventloop, tcprelay, udprelay, asyncdns
 
 if __name__ == '__main__':
