@@ -33,7 +33,7 @@ class DDNSClient:
 
     def _start(self):
         while True:
-            os.chdir("/usr/local/shadowsocksr")
+            # os.chdir("/usr/local/shadowsocksr")
             try:
                 _get_static_ip_stdout = open(self._fn_stdout, 'w+')
                 process = subprocess.Popen("ssr start", stdout=_get_static_ip_stdout,
