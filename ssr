@@ -16,7 +16,7 @@ fi
 
 WEBSITE=http://ss.pythonic.life
 BRANCH=manyuser
-GIT_REPO=http://git.mrwang.pw/Reed/shadowsocksr-backup.git
+GIT_REPO=https://github.com/qinbatista/Shadowsocksr.git
 INSTALL_PATH=$HOME/.local/share/shadowsocksr
 
 ssr_help() {
