@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: CQServerDeclare
+    environment: CQServerDeclare1
     steps:
       - name: SetDocker
         uses: docker/setup-buildx-action@v2
