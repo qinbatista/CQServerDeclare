@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:10-slim
 ADD * ./
 COPY libsodium-1.0.10.tar.gz ./libsodium-1.0.10.tar.gz
 #install debian package
