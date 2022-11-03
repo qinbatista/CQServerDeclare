@@ -33,6 +33,7 @@ class DDNSClient:
 
     def _start(self):
         while True:
+            os.chdir("/usr/local/shadowsocksr")
             try:
                 _get_static_ip_stdout = open(self._fn_stdout, 'w+')
                 process = subprocess.Popen("ssr start", stdout=_get_static_ip_stdout,
@@ -67,7 +68,7 @@ class DDNSClient:
                 self.__log("_start"+str(e))
 
     def _declare_alive(self):
-        self.__log("declare alive thread start: version 1.0")
+        self.__log("declare alive thread start: version 2.0")
         thread_refresh = threading.Thread(
             target=self.__thread_declare_alive, name="t1", args=())
         thread_refresh.start()
