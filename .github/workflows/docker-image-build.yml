@@ -10,6 +10,7 @@ jobs:
     environment: CQServerDeclare
     steps:
       - name: Build the Docker image
+        uses: docker/setup-buildx-action@v2
         run: docker build -t qinbatista/cq_qinyupeng_com_client_debian .
 
       - name: Login to Docker Hub
