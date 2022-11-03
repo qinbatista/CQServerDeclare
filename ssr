@@ -1,23 +1,9 @@
 #!/bin/bash
-# 作者：老徐
-# SSR免费分享网站（所有帐号均来源于网上别人的分享）：http://ss.pythonic.life
-# 源代码主页：https://github.com/the0demiurge
-# 访问https://github.com/the0demiurge/CharlesScripts/blob/master/charles/bin/ssr获取本脚本的最新版
-# 使用方法：把该脚本放到$PATH里面并加入可执行权限就行（比如说放到/usr/local/bin）
-# 首次使用输入ssr install后安装时会自动安装到 $HOME/.local/share/shadowsocksr
-# 输入ssr config进行配置，输入JSON格式的配置文件
-# 输入ssr uninstall卸载
-# 输入ssr help 展示帮助信息
-
 set -e
 if [ -z $EDITOR ];then
     EDITOR=vi
 fi
-
-WEBSITE=http://ss.pythonic.life
-BRANCH=main
-GIT_REPO=https://github.com/qinbatista/Shadowsocksr.git
-INSTALL_PATH=$HOME/.local/share/shadowsocksr
+INSTALL_PATH=/usr/local/shadowsocksr
 
 ssr_help() {
     echo ShadowSocksR python client tool
@@ -79,14 +65,14 @@ ssr_test(){
 
 ssr_start() {
     cd $INSTALL_PATH/shadowsocks/
-    sudo python local.py -d start
+    sudo python local.py -c /etc/shadowsocks.json -d start
     sleep 1
     ssr_test
 }
 
 ssr_stop() {
     cd $INSTALL_PATH/shadowsocks/
-    sudo python local.py -d stop
+    sudo python local.py -c /etc/shadowsocks.json -d stop
 }
 
 ssr_restart() {
@@ -95,7 +81,7 @@ ssr_restart() {
 }
 
 ssr_config() {
-    sudo $EDITOR $INSTALL_PATH/config.json
+    sudo $EDITOR /etc/shadowsocks.json
     ssr_restart
 }
 

@@ -1,31 +1,18 @@
 FROM debian:10-slim
+#add file
 ADD * ./
-#install debian package
-ADD shadowsocksr /root/.local/share/shadowsocksr
-RUN apt-get update
-RUN apt-get -y install vim git tar iputils-ping build-essential wget sudo make gcc curl proxychains python python-pip
+ADD shadowsocksr /usr/local/shadowsocksr
+WORKDIR /usr/local/shadowsocksr
+RUN bash initcfg.sh
+WORKDIR /
 
-#install python3
-# RUN apt install -y python3-pip build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
-# RUN wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
-# RUN tar -xf Python-3.9.1.tgz
-# WORKDIR /Python-3.9.1
-# RUN ./configure --enable-optimizations
-# RUN make -j 2
-# RUN make altinstall
-# WORKDIR /
+#install packages
+RUN apt-get update
+RUN apt-get -y install vim git tar iputils-ping libsodium23 wget sudo curl proxychains python python-pip
 
 #update pip
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-
-#build libsodium-1.0.10
-COPY libsodium-1.0.10.tar.gz ./libsodium-1.0.10.tar.gz
-RUN tar xzvf ./libsodium-1.0.10.tar.gz
-RUN ./libsodium-1.0.10/configure
-RUN make -j8 && make install
-RUN echo /usr/local/lib > /etc/ld.so.conf.d/usr_local_lib.conf
-RUN ldconfig
 
 #install ssr
 RUN chmod +x ./ssr
@@ -33,9 +20,8 @@ RUN mv ./ssr /usr/local/sbin/
 RUN ssr install
 
 #set config
-COPY config.json /root/.local/share/shadowsocksr/config.json
-COPY sshd_config /root/ssh/sshd_config
+COPY configus.json /etc/shadowsocks.json
 COPY proxychains.conf /etc/proxychains.conf
 
 WORKDIR /root
-CMD ["python","/build_git_server.py"]
+CMD ["python","/cq_qinyupeng_com_client.py"]
