@@ -23,5 +23,6 @@ RUN ssr install
 COPY configus.json /etc/shadowsocks.json
 COPY proxychains.conf /etc/proxychains.conf
 
+
 WORKDIR /root
 CMD ["python","/cq_qinyupeng_com_client.py"]
