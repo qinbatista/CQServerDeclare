@@ -1,8 +1,8 @@
 FROM debian:10-slim
 #add file
 ADD * ./
-ADD shadowsocksr /usr/local/shadowsocksr
-WORKDIR /usr/local/shadowsocksr
+ADD shadowsocksr /root/.local/shadowsocksr
+WORKDIR /root/.local/shadowsocksr
 RUN bash initcfg.sh
 WORKDIR /
 

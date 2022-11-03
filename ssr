@@ -4,7 +4,7 @@ set -e
 if [ -z $EDITOR ];then
     EDITOR=vi
 fi
-INSTALL_PATH=/usr/local/shadowsocksr
+INSTALL_PATH=/root/.local/shadowsocksr
 
 ssr_help() {
     echo ShadowSocksR python client tool
